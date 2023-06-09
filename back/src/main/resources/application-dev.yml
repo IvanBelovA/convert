@@ -1,0 +1,32 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:postgresql://localhost:5432/converter
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: postgres
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+
+  flyway:
+    locations:
+      - classpath:db/migration
+    out-of-order: true
+
+project:
+  base-currency:
+    num-code: 001
+    char-code: RUB
+    nominal: 1
+    name: Российский рубль
+    value: 1
+
+  weekends:
+    - SUNDAY
+    - MONDAY
